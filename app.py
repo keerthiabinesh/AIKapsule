@@ -380,7 +380,7 @@ st.markdown(f"""
 
 # --- Chat messages ---
 for msg in st.session_state.messages:
-    avatar = "⬡" if msg["role"] == "assistant" else "○"
+    avatar = "🤖" if msg["role"] == "assistant" else "👤"
     with st.chat_message(msg["role"], avatar=avatar):
         st.markdown(msg["content"])
         if msg.get("report"):
@@ -390,10 +390,10 @@ for msg in st.session_state.messages:
 # --- Input ---
 if user_input := st.chat_input("Your response..."):
     st.session_state.messages.append({"role": "user", "content": user_input})
-    with st.chat_message("user", avatar="○"):
+    with st.chat_message("user", avatar="👤"):
         st.markdown(user_input)
 
-    with st.chat_message("assistant", avatar="⬡"):
+    with st.chat_message("assistant", avatar="🤖"):
         with st.spinner(""):
             phase = st.session_state.phase
             report = None
